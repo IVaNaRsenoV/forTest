@@ -7,14 +7,9 @@ import { useAppDispatch } from '../../redux/hooks';
 //================================< THUNK >================================
 import deleteData from '../../redux/thunk/deleteData';
 
-type Data = {
-    id: number
-    title: string
-  }
+//================================< TYPES >================================
+import BasketType from './type';
 
-type BasketType = {
-    data: Data[]
-}
 
 export const Basket: React.FC<BasketType> = ({ data }) => {
     const dispatch = useAppDispatch();

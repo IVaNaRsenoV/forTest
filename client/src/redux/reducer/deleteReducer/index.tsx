@@ -1,14 +1,9 @@
+//================================< LIBRARIES >================================
 import { createSlice } from '@reduxjs/toolkit';
 import deleteData from '../../thunk/deleteData';
 
-type Title = {
-    title: string
-    id: number
-}
-
-type Data = {
-    data: Title[]
-}
+//================================< TYPES >================================
+import Data from './type';
 
 const initialState: Data = {
     data: []

@@ -1,14 +1,9 @@
+//================================< LIBRARIES >================================
 import { createSlice } from '@reduxjs/toolkit';
 import getData from '../../thunk/getData';
 
-type Title = {
-    title: string
-    id: number
-}
-
-type Data = {
-    data: Title[]
-}
+//================================< TYPES >================================
+import Data from './type';
 
 const initialState: Data = {
     data: []
