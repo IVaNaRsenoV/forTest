@@ -24,6 +24,8 @@ export const Basket: React.FC<BasketType> = ({ data }) => {
             return (
               <div key={el.id}>
                   <h3>{el.title}</h3>
+                  <h3>{el.cost}</h3>
+                  <img src={el.img} alt='default img' />
                   <button onClick={() => {
                     dispatch(deleteData(el.id))
                   }}>delete </button>

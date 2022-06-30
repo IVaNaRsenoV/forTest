@@ -1,6 +1,6 @@
 //================================< LIBRARIES >================================
 import { createSlice } from '@reduxjs/toolkit';
-import getData from '../../thunk/getData';
+import getData from '../../thunk/getDataBasket';
 
 //================================< TYPES >================================
 import Data from './type';

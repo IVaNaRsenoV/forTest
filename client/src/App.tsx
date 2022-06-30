@@ -1,13 +1,12 @@
 //================================< LIBRARIES >================================
 import React from 'react';
 import { Routes, Route, Outlet } from 'react-router';
-import { Link } from 'react-router-dom';
 
 //================================< HOOKS >================================
 import { useAppDispatch, useAppSelector } from './redux/hooks';
 
 //================================< THUNK >================================
-import getData from './redux/thunk/getData';
+import getData from './redux/thunk/getDataBasket';
 
 //================================< PAGES >================================
 import { Products, Basket, Layout } from './pages';
