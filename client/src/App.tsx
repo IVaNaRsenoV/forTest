@@ -1,5 +1,7 @@
 //================================< LIBRARIES >================================
 import React from 'react';
+import { Routes, Route, Outlet } from 'react-router';
+import { Link } from 'react-router-dom';
 
 //================================< HOOKS >================================
 import { useAppDispatch, useAppSelector } from './redux/hooks';
@@ -8,7 +10,7 @@ import { useAppDispatch, useAppSelector } from './redux/hooks';
 import getData from './redux/thunk/getData';
 
 //================================< PAGES >================================
-import { Products, Basket } from './pages';
+import { Products, Basket, Layout } from './pages';
 
 //================================< STYLE >================================
 import './App.css';
@@ -24,8 +26,12 @@ function App() {
   
   return (
     <div>
-      <Products/>
-      <Basket data={data}/>
+      <Layout />
+      <Routes>
+        <Route path='/products' element={<Products />}/>
+        <Route path='/basket' element={<Basket data={data} />}/>
+      </Routes>
+      <Outlet />
     </div>
   );
 }
