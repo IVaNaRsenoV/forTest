@@ -1,9 +1,9 @@
+//================================< LIBRARIES >================================
 import { createSlice } from '@reduxjs/toolkit';
 import postData from '../../thunk/postData';
 
-type Data = {
-    title: string
-}
+//================================< TYPES >================================
+import Data from './type';
 
 const initialState: Data = {
     title: 'default value'
