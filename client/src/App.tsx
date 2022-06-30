@@ -1,60 +1,31 @@
+//================================< LIBRARIES >================================
 import React from 'react';
+
+//================================< HOOKS >================================
 import { useAppDispatch, useAppSelector } from './redux/hooks';
-import postData from './redux/thunk/postData';
+
+//================================< THUNK >================================
 import getData from './redux/thunk/getData';
-import deleteData from './redux/thunk/deleteData';
+
+//================================< PAGES >================================
+import { Products, Basket } from './pages';
+
+//================================< STYLE >================================
 import './App.css';
-
-type TestA = {
-  id: number
-  title: string
-}
-
-const Test: React.FC<{ data: TestA[]}> = ({ data }) => {
-  const dispatch = useAppDispatch();
-  // const data = useAppSelector(state => state.getReducer.data);
-  return (
-  <>
-    {
-      data.length > 0 ? 
-      <>
-      {
-        data.map(el => {
-          return (
-            <div key={el.id}>
-                <h3>{el.title}</h3>
-                <button onClick={() => {
-                  dispatch(deleteData(el.id))
-                }}>delete </button>
-            </div>
-          )
-        })
-      }
-      </> : null    
-    }
-  </>
-  )
-}
 
 
 function App() {
-
-  const [ test, setTest ] = React.useState<string>('');
   const dispatch = useAppDispatch();
   const data = useAppSelector(state => state.getReducer.data);
 
   React.useEffect(() => {
     dispatch(getData())
-  }, [])
+  }, [dispatch])
   
   return (
     <div>
-      <input type='text' placeholder='send message' onChange={(e) => setTest(e.target.value)}/>
-      <button onClick={() => {
-        dispatch(postData(test))
-        dispatch(getData())
-      }}>click</button>
-      <Test data={data}/>
+      <Products/>
+      <Basket data={data}/>
     </div>
   );
 }
