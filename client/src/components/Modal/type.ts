@@ -1,8 +1,6 @@
 interface Data {
-    img: string;
+    toggle?: any;
     title: string;
-    cost: number;
-    toggle: any;
-}
+  }
 
 export default Data;

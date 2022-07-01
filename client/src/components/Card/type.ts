@@ -9,7 +9,6 @@ type D = {
     data: D;
     func: any;
     text: string
-    toggle?: any;
   }
 
   export default Data;
