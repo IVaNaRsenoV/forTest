@@ -14,14 +14,18 @@ import Typography from '@mui/material/Typography';
 
 //================================< TYPES >================================
 import Data from './type';
+import { Modal } from '../Modal';
 
-export const CardComponent: React.FC<Data> = ({ data, func, text, toggle }) => {
+
+export const CardComponent: React.FC<Data> = ({ data, func, text }) => {
+
+    const [ test, setTest ] = React.useState<boolean>(false);
 
     const dispatch = useAppDispatch();
     const { img, title, cost } = data;
   
     return (
-      <Card sx={{ height: "100%" }}>
+      <Card sx={{ height: "100%", position: "relative" }}>
         <CardMedia
         sx={{ width: '60%', m: '0 auto'}}
         component="img"
@@ -49,11 +53,14 @@ export const CardComponent: React.FC<Data> = ({ data, func, text, toggle }) => {
           <Button
             variant="text"
             size="small"
-            onClick={() => toggle(true)}
+            onClick={() => setTest(true)}
           >
             get info
           </Button>
         </CardActions>
+        {
+          test ? <Modal toggle={setTest} title={title}/> : null
+        }
       </Card>
     )
   }
