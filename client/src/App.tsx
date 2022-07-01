@@ -17,7 +17,6 @@ import { Quantity } from './components';
 //================================< STYLE >================================
 import './App.css';
 
-
 function App() {
   const dispatch = useAppDispatch();
   const data = useAppSelector(state => state.getReducer.data);

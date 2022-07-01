@@ -7,10 +7,13 @@ import { addItem } from '../../services';
 //================================< TYPES >================================
 import Data from './type';
 
+//================================< MUI >================================
+import Grid from '@mui/material/Grid';
+
 //================================< COMPONENTS >================================
 import { ModalWindow }from '../Modal';
 
-import { Card } from '../Card';
+import { CardComponent } from '../Card';
 
   
   export const CardProduct: React.FC<Data> = ({ cost, title, img }) => {
@@ -21,16 +24,16 @@ import { Card } from '../Card';
     }
 
     return (
-      <div>
-          <Card
+        <Grid item xs={12} md={3} sx={{ maxWidth: '25%' }}>
+        <CardComponent
             func={addItem}
-            text={'add to the basket'}
+            text={'add'}
             data={{cost, title, img }}
+            toggle={toggleFlag}
           />
-          <button onClick={() => toggleFlag(true)}>get info about this card</button>
           {
             toggle ? <ModalWindow img={img} title={title} cost={cost} toggle={toggleFlag}/> : null
           }
-      </div>
+        </Grid>
     )
   }

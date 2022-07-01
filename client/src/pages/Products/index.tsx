@@ -7,6 +7,10 @@ import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 //================================< THUNK >================================
 import getDataProducts from '../../redux/thunk/getDataProducts';
 
+//================================< NUI >================================
+import Container from '@mui/material/Container';
+import Grid from '@mui/material/Grid';
+
 //================================< COMPONENTS >================================
 import { CardProduct } from '../../components';
 
@@ -19,8 +23,8 @@ export const Products: React.FC = () => {
   }, [dispatch])
 
   return (
-    <>
-      <h1>Products</h1>
+    <Container sx={{ flexGrow: 1 }}>
+      <Grid container spacing={2}>
       {
         data.map(({ id, cost, title, img}) => {
           return (
@@ -28,6 +32,7 @@ export const Products: React.FC = () => {
           )
         })
       }
-    </>
+      </Grid>
+    </Container>
   )
 }
