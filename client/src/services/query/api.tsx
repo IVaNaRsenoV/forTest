@@ -1,4 +1,4 @@
-async function api (url: string, method: string, data?: any, headers?: any ) {
+export async function api (url: string, method: string, data?: any, headers?: any ) {
     try {
         const response = await fetch(url, {
             method,
@@ -12,5 +12,3 @@ async function api (url: string, method: string, data?: any, headers?: any ) {
         console.log(error)
     }
 };
-
-export default api;

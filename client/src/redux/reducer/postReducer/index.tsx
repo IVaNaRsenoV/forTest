@@ -6,7 +6,9 @@ import postData from '../../thunk/postData';
 import Data from './type';
 
 const initialState: Data = {
-    title: 'default value'
+    title: 'default value',
+    cost: 0,
+    img: 'default img'
 }
 
 const postReducer = createSlice({

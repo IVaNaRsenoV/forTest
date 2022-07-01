@@ -4,28 +4,20 @@ import React from 'react'
 //================================< HOOKS >================================
 import { useAppDispatch } from '../../redux/hooks';
 
-//================================< THUNK >================================
-import postData from '../../redux/thunk/postData';
-import getData from '../../redux/thunk/getData';
-
 //================================< TYPES >================================
 import Data from './type';
 
-  
-  export const Card: React.FC<Data> = ({ cost, title, img }) => {
+export const Card: React.FC<Data> = ({ data, func, text }) => {
+
     const dispatch = useAppDispatch();
+    const { img, title, cost } = data;
   
-    const requestAction = (title: string) => {
-      dispatch(postData(title))
-      dispatch(getData())
-    }
-    
     return (
       <div>
-          <img src={img} alt='default'/>
-          <h3>{title}</h3>
-          <p>{cost} ГРН</p>
-          <button onClick={() => requestAction(title)}>add to the basket</button>
+        <img src={img} alt='default img' />
+        <h3>{title}</h3>
+        <h3>{cost}</h3>
+        <button onClick={() => func(dispatch, data)}>{text}</button>
       </div>
     )
   }

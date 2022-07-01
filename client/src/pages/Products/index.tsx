@@ -8,7 +8,7 @@ import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import getDataProducts from '../../redux/thunk/getDataProducts';
 
 //================================< COMPONENTS >================================
-import { Card } from '../../components';
+import { CardProduct } from '../../components';
 
 export const Products: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -24,7 +24,7 @@ export const Products: React.FC = () => {
       {
         data.map(({ id, cost, title, img}) => {
           return (
-            <Card key={id} cost={cost} title={title} img={img}/>
+            <CardProduct key={id} cost={cost} title={title} img={img}/>
           )
         })
       }
