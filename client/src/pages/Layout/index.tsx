@@ -6,6 +6,7 @@ export const Layout: React.FC = () => {
         <>
             <Link to='/products'>Products</Link>
             <Link to='/basket'>Basket</Link>
+            <Link to='/quantity'>Quantity</Link>
         </>
     )
 }

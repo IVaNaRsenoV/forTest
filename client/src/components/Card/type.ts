@@ -1,7 +1,14 @@
-interface Data {
-    cost: number
-    title: string
-    img: string
+type D = {
+    title: string;
+    cost: number;
+    img: string;
+    id?: number;
+  }
+  
+  interface Data {
+    data: D;
+    func: any;
+    text: string
   }
 
-export default Data;
+  export default Data;

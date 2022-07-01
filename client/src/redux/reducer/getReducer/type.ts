@@ -7,6 +7,7 @@ type Title = {
 
 type Data = {
     data: Title[]
+    count: number
 };
 
 export default Data;
