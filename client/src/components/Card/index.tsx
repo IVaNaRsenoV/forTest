@@ -12,6 +12,7 @@ import CardMedia from '@mui/material/CardMedia';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
+import Grid from '@mui/material/Grid';
 
 //================================< TYPES >================================
 import Data from './type';
@@ -27,25 +28,26 @@ export const CardComponent: React.FC<Data> = ({ data, func, text }) => {
     const { img, title, cost } = data;
   
     return (
-      <Card sx={{ height: "100%", position: "relative" }}>
-        <Link to='/item'>
-        <CardMedia
-          sx={{ width: '60%', m: '0 auto', cursor: 'pointer' }}
-          component="img"
-          image={img}
-          alt="product"
-          onClick={() => dispatch(getInfo({ img, title, cost }))}
-      />
-        </Link>
+      // <Grid item xs={12} md={3} sx={{ maxWidth: '25%' }}>
+        <Card sx={{ height: "100%", position: "relative" }}>
+          <Link to='/item'>
+            <CardMedia
+              sx={{ width: '60%', m: '0 auto', cursor: 'pointer' }}
+              component="img"
+              image={img}
+              alt="product"
+              onClick={() => dispatch(getInfo({ img, title, cost }))}
+            />
+          </Link>
 
-      <CardContent sx={{ pl: "20%" }}>
-        <Typography variant="h6">
-          {title}
-        </Typography>
-        <Typography variant="body1">
-          {cost}
-        </Typography>
-      </CardContent>
+        <CardContent sx={{ pl: "20%" }}>
+          <Typography variant="h6">
+            {title}
+          </Typography>
+          <Typography variant="body1">
+            {cost}
+          </Typography>
+        </CardContent>
 
         <CardActions sx={{ justifyContent: "space-around" }}>
           <Button
@@ -67,5 +69,6 @@ export const CardComponent: React.FC<Data> = ({ data, func, text }) => {
           test ? <Modal toggle={setTest} title={title}/> : null
         }
       </Card>
+      // </Grid>
     )
   }

@@ -17,7 +17,6 @@ import { Card } from '../../components';
 //==================================< TYPES >==================================
 import BasketType from './type';
 
-
 export const Basket: React.FC<BasketType> = ({ data }) => {
   const toggle = useAppSelector(state => state.filterReducer.toggle);
   const test = useAppSelector(state => state.filterReducer.data);
@@ -31,7 +30,10 @@ export const Basket: React.FC<BasketType> = ({ data }) => {
           {
             data.map(({ id, img, title, cost }) => {
               return (
-                <Card key={id} data={{ id, img, title, cost }} func={deleteItem} text={'delete'}/>
+                <Grid item xs={12} md={3} sx={{ maxWidth: '25%' }}>
+                  <Card key={id} data={{ id, img, title, cost }} func={deleteItem} text={'delete'}/>
+                  </Grid>
+                
               )
             })
           }
@@ -40,7 +42,10 @@ export const Basket: React.FC<BasketType> = ({ data }) => {
           {
             test.map(({ id, img, title, cost }) => {
               return (
-                <Card key={id} data={{ id, img, title, cost }} func={deleteItem} text={'delete'}/>
+                <Grid item xs={12} md={3} sx={{ maxWidth: '25%' }}>
+                  <Card key={id} data={{ id, img, title, cost }} func={deleteItem} text={'delete'}/>
+                </Grid>
+                
               )
             })
           }
