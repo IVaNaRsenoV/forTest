@@ -14,9 +14,27 @@ import Grid from '@mui/material/Grid';
 //================================< COMPONENTS >================================
 import { CardProduct } from '../../components';
 
-export const Products: React.FC = () => {
+type Data = {
+  id: number
+  title: string
+  cost: number
+  img: string
+}
+
+interface Obj {
+  data: Data[]
+}
+
+type BasketType = {
+  data: Obj;
+}
+
+export const Products: React.FC<BasketType> = ({ data }) => {
   const dispatch = useAppDispatch();
-  const data = useAppSelector(state => state.getProductReducer.data);
+  const dataStart = useAppSelector(state => state.getProductReducer.data);
+  const toggle = useAppSelector(state => state.filterReducer.toggle);
+
+  const test = useAppSelector(state => state.filterReducer.data);
 
   useEffect(() =>{
     dispatch(getDataProducts());
@@ -26,11 +44,23 @@ export const Products: React.FC = () => {
     <Container sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>
       {
-        data.map(({ id, cost, title, img}) => {
-          return (
-            <CardProduct key={id} cost={cost} title={title} img={img}/>
-          )
-        })
+        !toggle ? (
+        <>
+        {
+          dataStart.map(({ id, cost, title, img}) => {
+            return (
+              <CardProduct key={id} cost={cost} title={title} img={img}/>
+            )
+          })
+        }
+        </>
+        ) : (
+          test.map(({ id, cost, title, img}) => {
+            return (
+              <CardProduct key={id} cost={cost} title={title} img={img}/>
+            )
+          })
+        )
       }
       </Grid>
     </Container>
