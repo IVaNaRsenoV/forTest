@@ -1,5 +1,6 @@
 //================================< LIBRARIES >================================
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 //================================< HOOKS >================================
 import { useAppDispatch } from '../../redux/hooks';
@@ -16,6 +17,7 @@ import Typography from '@mui/material/Typography';
 import Data from './type';
 import { Modal } from '../Modal';
 
+import { getInfo } from '../../redux/reducer/getInfoItem';
 
 export const CardComponent: React.FC<Data> = ({ data, func, text }) => {
 
@@ -26,12 +28,15 @@ export const CardComponent: React.FC<Data> = ({ data, func, text }) => {
   
     return (
       <Card sx={{ height: "100%", position: "relative" }}>
+        <Link to='/item'>
         <CardMedia
-        sx={{ width: '60%', m: '0 auto'}}
-        component="img"
-        image={img}
-        alt="product"
+          sx={{ width: '60%', m: '0 auto', cursor: 'pointer' }}
+          component="img"
+          image={img}
+          alt="product"
+          onClick={() => dispatch(getInfo({ img, title, cost }))}
       />
+        </Link>
 
       <CardContent sx={{ pl: "20%" }}>
         <Typography variant="h6">

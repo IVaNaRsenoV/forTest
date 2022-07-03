@@ -5,11 +5,8 @@ import getDataBasket from '../../redux/thunk/getDataBasket';
 //================================< ACTIONS >================================
 import { inc } from '../../redux/reducer/getReducer';
 
-interface Data {
-    title: string;
-    cost: number;
-    img: string;
-}
+//================================< TYPES >================================
+import Data from './type';
 
 export const addItem = (dispatch: any, data: Data ) => {
     const { img, cost, title } = data;
